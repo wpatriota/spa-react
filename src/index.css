@@ -24,14 +24,13 @@ section {
   margin-top: 90px; /* ajuste o valor conforme necessário */
 }
 
-.logo-objetiva{
-  max-width: 250px;
-}
 
 input {
   border: none; /* Remove a borda do campo de input */
   background-color: #b0beec; /* Define a cor de fundo do campo de input */
-  height: 25px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5px;
   /* Outros estilos personalizados */
 }
 

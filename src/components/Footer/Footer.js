@@ -1,5 +1,6 @@
 import React from "react";
 import './Footer.css';
+import {AiFillPhone} from 'react-icons/ai';
 
 function Footer(){
   return (
@@ -8,8 +9,8 @@ function Footer(){
       <span>CNPJ: 13.282.501/0001-50</span><br/>
 
       <div className="telefones">
-        (11) 3207-6869
-        (11) 3207-6869
+        <AiFillPhone/>(11) 3207-6869 <br/>
+        <AiFillPhone/>(11) 3207-6869
       </div><br/>
   
       <div className="endereco">

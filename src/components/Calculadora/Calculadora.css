@@ -5,20 +5,28 @@
     border-radius: 40px;    
     background-color:white;
     box-shadow: rgba(0,0,0,0.8) 0 0 40px;
+    position: relative;
 }
 
 .calculadora h2{
   text-align: center;
   text-transform: uppercase;
+  color: black;
 }
 
 .calculadora button{
+  margin: 20px 50px 10px 110px;
   height: 40px;
   width: 110px;
   border-radius: 15px;
   text-transform: uppercase;
   background-color: brown;
   border-style: none;
+}
+
+label{
+  text-transform: uppercase;
+  padding: 5px;
 }
 
 .subtitulo{

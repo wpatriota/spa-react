@@ -1,9 +1,18 @@
 .HomeDescription{
-
+  position: relative;
 }
 
 .HomeDescription h1 {
     color: aliceblue;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
-  }
+    text-align: center;
+}
+
+.HomeDescription li {
+  color: aliceblue;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  text-justify: auto;
+  list-style: none;
+}
