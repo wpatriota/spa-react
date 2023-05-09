@@ -1,0 +1,16 @@
+.footer{
+    background-color: #5a8ce3;
+    padding: 0px 10px 0px 20px;
+}
+
+.footer h3{
+  color:aliceblue;
+}
+
+.endereco{
+  text-align: right;
+}
+
+.telefones{
+  text-align: right;
+}

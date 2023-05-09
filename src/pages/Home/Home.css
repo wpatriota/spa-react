@@ -1,0 +1,17 @@
+.sectionHome{
+    padding: 40px;  
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-image: url('../../assets/predio.jpeg');
+}
+
+.sectionHome h2{
+    color:blue;
+}
+
+.overlay {
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Define a cor de sobreposição com transparência */
+}

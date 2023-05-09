@@ -1,0 +1,30 @@
+.calculadora{
+    height: 370px;
+    padding: 20px;
+    width: 330px;
+    border-radius: 40px;    
+    background-color:white;
+    box-shadow: rgba(0,0,0,0.8) 0 0 40px;
+}
+
+.calculadora h2{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.calculadora button{
+  height: 40px;
+  width: 110px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  background-color: brown;
+  border-style: none;
+}
+
+.subtitulo{
+  padding: 5px;
+  text-transform: lowercase;
+  font-size:11px;
+  color: gray;
+}
+

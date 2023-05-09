@@ -1,0 +1,9 @@
+.HomeDescription{
+
+}
+
+.HomeDescription h1 {
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+  }
