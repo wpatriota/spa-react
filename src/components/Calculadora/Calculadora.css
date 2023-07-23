@@ -1,38 +1,101 @@
-.calculadora{
-    height: 370px;
-    padding: 20px;
-    width: 330px;
-    border-radius: 40px;    
-    background-color:white;
-    box-shadow: rgba(0,0,0,0.8) 0 0 40px;
-    position: relative;
+/* Estilo comum para a frente e as costas da calculadora */
+.calculadora {
+  height: 370px;
+  padding: 20px;
+  width: 330px;
+  border-radius: 40px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 40px;
+  position: relative;
+  transition: transform 1s ease;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  font-family: inherit;
 }
 
-.calculadora h2{
+.calculadora.girando{
+  /*transform: rotateY(180deg);*/
+}
+
+.resultado-costas h3 {
+  /* Estilos para o título "Parabéns!" */
+  color: #0066ff;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.resultado-costas .valor-economia {
+  /* Estilos para o valor economizado */
+  font-size: 36px;
+  font-weight: bold;
+  color: #72767c;
+}
+
+.resultado-costas p {
+  /* Estilos para o texto explicativo */
+  font-size: 16px;
+  color: #333;
+}
+
+.resultado-costas button {
+  /* Estilos do botão "Voltar" */
+  background-color: #FF5722;
+  color: #FFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.resultado-costas .lead-message {
+  /* Estilos para a mensagem de captura de lead */
+  font-size: 14px;
+  color: #FF5722;
+  margin-top: 10px;
+}
+
+.calculadora h2 {
   text-align: center;
   text-transform: uppercase;
   color: black;
 }
 
-.calculadora button{
-  margin: 20px 50px 10px 110px;
+.calculadora button {
+  margin: 20px 50px 10px 100px;
   height: 40px;
-  width: 110px;
-  border-radius: 15px;
+  width: 150px;
+  border-radius: 10px;
   text-transform: uppercase;
+  font-size: 12px;
   background-color: brown;
   border-style: none;
 }
 
-label{
+label {
   text-transform: uppercase;
   padding: 5px;
+  font-family: inherit;
 }
 
-.subtitulo{
+.subtitulo {
   padding: 5px;
   text-transform: lowercase;
-  font-size:11px;
+  font-size: 11px;
   color: gray;
 }
 
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-left: 25px;
+}
+
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+
+}

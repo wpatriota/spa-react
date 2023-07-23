@@ -5,12 +5,36 @@
 
 .footer h3{
   color:aliceblue;
+  font: 1.5em sans-serif;
+  text-align: left;
 }
 
 .endereco{
   text-align: right;
+  font: 1em sans-serif;
+  color: aliceblue;
 }
 
 .telefones{
   text-align: right;
+  font: 1em sans-serif;
+  color: aliceblue;
+}
+
+.email{
+  text-align: right;
+  font: 1em sans-serif;
+  color: aliceblue;
+}
+
+.redes-sociais{
+  text-align: right;
+  font: 1em sans-serif;
+  color: aliceblue;
+}
+
+.cnpj{
+  text-align: right;
+  font: 1em sans-serif;
+  color: aliceblue;
 }

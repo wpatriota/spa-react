@@ -6,7 +6,7 @@ function Footer(){
   return (
     <footer className='footer'>
       <h3>OBJETIVA - SOLUÇÕES EM CONSÓRCIO S/S LTDA</h3>
-      <span>CNPJ: 13.282.501/0001-50</span><br/>
+      <span className="cnpj">CNPJ: 13.282.501/0001-50</span><br/>
 
       <div className="telefones">
         <AiFillPhone/>(11) 3207-6869 <br/>

@@ -1,32 +1,101 @@
 import React, { useState } from 'react';
+import CurrencyInput from 'react-currency-input-field';
+import calcularResultado from '../../utils/calculos';
 import './Calculadora.css';
 
 function Calculadora() {
-  const [nome, setNome] = useState('');
+  const [credito, setCredito] = useState('');
   const [percentual, setPercentual] = useState('');
-  const [data, setDate] = useState('');
+  const [dataEncerramento, setDataEncerramento] = useState('');
+  const [isGirando, setIsGirando] = useState(false);
+  const [resultado, setResultado] = useState(null);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+
+  const handleCalcular = (event) => {
+    event.preventDefault();
+
+    // Chamamos a função de cálculo e passamos os valores inseridos nos campos
+    const resultadoCalculo = calcularResultado(credito, percentual, dataEncerramento);
+
+    // Verificamos se o resultado do cálculo é um número antes de continuar
+    if (!isNaN(resultadoCalculo)) {
+      // Arredondamos o resultado para 2 casas decimais
+      const resultadoArredondado = parseFloat(resultadoCalculo).toFixed(2);
+      setResultado(resultadoArredondado);
+      setIsGirando(true); // Inicia o efeito de girar a calculadora
+    } else {
+      // Caso o resultado não seja um número válido, definimos o resultado como null
+      setResultado(null);
+      
+    }
+    // Validar os campos antes de calcular
+    if (!credito || !percentual || !dataEncerramento) {
+      // Exibir a mensagem de erro se algum campo estiver vazio
+      setShowErrorMessage(true);
+      setResultado(null);
+      setIsGirando(false);
+      return;
+    }
+  };
+
+  const handleVoltar = () => {
+    setIsGirando(false); // Define isGirando como falso para mostrar a frente (calculadora)
+    setShowErrorMessage(false); 
+    setResultado(null); // Limpa o resultado para permitir um novo cálculo
+  };
 
   return (
-    <div className='calculadora'>
-      <h2>Nossa proposta</h2>
-      <form>
-        <label>Crédito</label><br />
-        <span className='subtitulo'>(valor do bem)</span><br />
-        <input type="text" value={nome} onChange={(event) => setNome(event.target.value)} /><br />  
-                
-        <label>Percentual Pago</label><br />
+    <div className={`calculadora ${isGirando ? 'girando' : ''}`}>
+      {!isGirando ? (
+        <div className="frente">
+          {showErrorMessage && <div className="error-message">Por favor, preencha todos os campos corretamente!</div>}
+        
+          <h3>Nossa Proposta</h3>
+          <form>
+            <label>Crédito</label><br />
+            <span className='subtitulo'>(valor do bem)</span><br />
+            <CurrencyInput
+              prefix="R$ "
+              decimalsLimit={2}
+              groupSeparator="."
+              decimalSeparator=","
+              value={credito}
+              onValueChange={(value, name) => setCredito(value)}
+            />
+            <br />  
+                    
+            <label>Percentual Pago</label><br />
+            <span className='subtitulo'>(valor pago em percentual do bem)</span><br />
+            <CurrencyInput
+              suffix="%"
+              value={percentual}
+              onValueChange={(value, name) => setPercentual(value)}
+            />
+            <br />
+            
+            <label>Encerramento do Grupo</label><br />
+            <span className='subtitulo'>(faltando até 10 anos para encerrar o grupo)</span><br />
+            <input type="date" value={dataEncerramento} onChange={(event) => setDataEncerramento(event.target.value)} />
+            <br/>
+            <button type="submit" onClick={handleCalcular}>Calcular</button>
+          </form>
+        </div>
+      ) : (
+        <div className="resultado-costas">
+          <h3>Parabéns!</h3>
+          <div className="resultado-content">
+            <p>Confira nossa proposta</p>
+            <p className="valor-economia">{resultado ? parseFloat(resultado).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '0,00'}</p>
+  
+            <p>fale conosco!</p>
+          </div>
           
-          <span className='subtitulo'>(valor pago em percentual do bem)</span><br />
-          <input type="number" value={percentual} onChange={(event) => setPercentual(event.target.value)} /><br />
-        
-        
-        <label>Encerramento do Grupo</label><br />
-        <span className='subtitulo'>(faltando até 10 anos para encerrar o grupo)</span><br />
-          <input type="date" value={data} onChange={(event) => setDate(event.target.value)} />
-        <br/>
-        <button type="submit">Calcular</button>
-      </form></div>
-    );
-  }
+          <p className="lead-message">Não perca tempo, entre em contato e aproveite essa oportunidade única!</p>
+          <button onClick={handleVoltar}>Calcular Novamente</button>
+        </div>
+      )}
+    </div>
+  );
+}
 
-  export default Calculadora;
+export default Calculadora;
