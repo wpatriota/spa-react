@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CurrencyInput from 'react-currency-input-field';
 import calcularResultado from '../../utils/calculos';
 import './Calculadora.css';
+import DateInput from '../DateInput/DateInput';
 
 function Calculadora() {
   const [credito, setCredito] = useState('');
@@ -10,6 +11,7 @@ function Calculadora() {
   const [isGirando, setIsGirando] = useState(false);
   const [resultado, setResultado] = useState(null);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [showFailMessage, setShowFailMessage] = useState(false);
 
   const handleCalcular = (event) => {
     event.preventDefault();
@@ -19,10 +21,20 @@ function Calculadora() {
 
     // Verificamos se o resultado do cálculo é um número antes de continuar
     if (!isNaN(resultadoCalculo)) {
-      // Arredondamos o resultado para 2 casas decimais
-      const resultadoArredondado = parseFloat(resultadoCalculo).toFixed(2);
-      setResultado(resultadoArredondado);
-      setIsGirando(true); // Inicia o efeito de girar a calculadora
+
+      if(resultadoCalculo == 0){        
+        setShowFailMessage(true);
+        setShowErrorMessage(false);
+        setResultado(null);
+        setIsGirando(false);
+        return;
+      }else{
+        // Arredondamos o resultado para 2 casas decimais
+        const resultadoArredondado = parseFloat(resultadoCalculo).toFixed(2);
+        setResultado(resultadoArredondado);
+        setIsGirando(true); // Inicia o efeito de girar a calculadora
+      }
+      
     } else {
       // Caso o resultado não seja um número válido, definimos o resultado como null
       setResultado(null);
@@ -32,6 +44,7 @@ function Calculadora() {
     if (!credito || !percentual || !dataEncerramento) {
       // Exibir a mensagem de erro se algum campo estiver vazio
       setShowErrorMessage(true);
+      setShowFailMessage(false);
       setResultado(null);
       setIsGirando(false);
       return;
@@ -40,7 +53,8 @@ function Calculadora() {
 
   const handleVoltar = () => {
     setIsGirando(false); // Define isGirando como falso para mostrar a frente (calculadora)
-    setShowErrorMessage(false); 
+    setShowErrorMessage(false);
+    setShowFailMessage(false); 
     setResultado(null); // Limpa o resultado para permitir um novo cálculo
   };
 
@@ -49,6 +63,7 @@ function Calculadora() {
       {!isGirando ? (
         <div className="frente">
           {showErrorMessage && <div className="error-message">Por favor, preencha todos os campos corretamente!</div>}
+          {showFailMessage && <div className="fail-message">Valores fora dos nossos parametros de proposta</div>}
         
           <h3>Nossa Proposta</h3>
           <form>
@@ -68,7 +83,11 @@ function Calculadora() {
             <span className='subtitulo'>(valor pago em percentual do bem)</span><br />
             <CurrencyInput
               suffix="%"
+              groupSeparator="."
+              decimalSeparator=","
+              allowNegativeValue={false}
               value={percentual}
+              decimalScale={2}
               onValueChange={(value, name) => setPercentual(value)}
             />
             <br />

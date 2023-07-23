@@ -12,6 +12,14 @@ const calcularMesesDiferenca = (dataEspecifica) => {
   return mesesDiferenca;
 };
 
+function customRound(value) {
+  if (value < 500) {
+    return Math.floor(value / 100) * 100; // Arredonda para baixo para o múltiplo de 100 mais próximo
+  } else {
+    return Math.floor(value / 1000) * 1000; // Arredonda para baixo para o múltiplo de 1000 mais próximo
+  }
+}
+
 const calcularResultado = (credito, percentual, dataencerramento) => {
   //const valorDoBem = parseFloat(credito.replace(/[^0-9.-]+/g, ""));
     const valorDoBem = parseFloat(credito);
@@ -46,12 +54,23 @@ const calcularResultado = (credito, percentual, dataencerramento) => {
 
   console.log('resultadoCalculo', resultadoCalculo);
   // Cálculo do valor do recebível
+
   let lucro = 0;
-  if (valorRecebivel > 9999) {
+  
+  if (valorRecebivel <= 9999) {
+    lucro = 0;
+  }else{
     lucro = valorRecebivel - resultadoCalculo;
   }
 
-  return resultadoCalculo.toFixed(2); // Arredondamos o resultado para 2 casas decimais
+  if(lucro < 5000){
+    resultadoCalculo = 0;
+  }else{
+    resultadoCalculo = customRound(resultadoCalculo);
+  }
+  
+  return resultadoCalculo.toFixed(2);
+  
 };
 
 export default calcularResultado;
