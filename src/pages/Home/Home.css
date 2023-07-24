@@ -1,9 +1,9 @@
 .sectionHome{
-    padding: 40px;  
+    padding: 50px;  
     background-size: cover;
     background-position: center;
     height: 100vh;
-    /*background-image: url('../../assets/predio.jpeg');*/
+    background-image: url('../../assets/predio.jpeg');
     position: relative;
 }
 

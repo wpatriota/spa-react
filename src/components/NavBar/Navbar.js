@@ -15,7 +15,7 @@ function Navbar(){
         <ul>
           <li><Link to="/"><img className='logo-nav' src="logo-objetiva2.png" alt="Logo Objetiva" class="logo-objetiva" /></Link></li>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/sobre">Parceria Remunerada</Link></li>
+          
           <li><Link to="/servicos">Intermediação de cotas canceladas</Link></li>
           <li><Link to="/contato">Contato</Link></li>
           <li><Link to="https://objetivascp.com.br/login">Painel SCP</Link></li>

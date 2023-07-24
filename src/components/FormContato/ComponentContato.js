@@ -1,42 +1,49 @@
-import './ComponentContato.css';
 import React, { useState } from 'react';
+import './ComponentContato.css';
 
-function ComponentContato(){
-    const [nome, setNome] = useState('');
-    const [percentual, setPercentual] = useState('');
-    const [data, setDate] = useState('');
-  
-    const [isCalculado, setIsCalculado] = useState(false);
+function ComponentContato() {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Aqui você pode fazer algo com os dados do formulário
-        console.log('Nome:', nome);
-        //console.log('Email:', email);
-        console.log('Percentual:', percentual);
-        console.log('Data:', data);
-        setIsCalculado(true);
-      };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Aqui você pode fazer algo com os dados do formulário, como enviar para o servidor
+    console.log('Nome:', nome);
+    console.log('Email:', email);
+    console.log('Mensagem:', mensagem);
+    // Aqui você pode fazer uma chamada a API ou qualquer ação necessária para lidar com os dados do formulário
+    // Exemplo fictício de envio para uma API:
+    // fetch('URL_DA_SUA_API', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ nome, email, mensagem }),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // }).then(response => response.json())
+    //   .then(data => console.log('Resposta da API:', data));
+  };
 
-    return (
-        <form>
-          <label>
-            Crédito <br />(valor do bem)<br />
-            <input type="text" value={nome} onChange={(event) => setNome(event.target.value)} />
-          </label>
-          <br />
-          <label>
-            Percentual Pago<br />(valor pago em percentual do bem)<br />
-            <input type="number" value={percentual} onChange={(event) => setPercentual(event.target.value)} />
-          </label>
-          <br />
-          <label>
-          Encerramento do Grupo<br />(faltando até 10 anos para encerrar o grupo)<br />
-            <input type="date" value={data} onChange={(event) => setDate(event.target.value)} />
-          </label><br />
-          <button type="submit">Calcular</button>
-        </form>
-      );
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Nome:
+        <input type="text" value={nome} onChange={(event) => setNome(event.target.value)} required />
+      </label>
+      <br />
+      <label>
+        Email:
+        <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
+      </label>
+      <br />
+      <label>
+        Mensagem:
+        <textarea value={mensagem} onChange={(event) => setMensagem(event.target.value)} required />
+      </label>
+      <br />
+      <button type="submit">Enviar</button>
+    </form>
+  );
 }
 
 export default ComponentContato;

@@ -18,10 +18,16 @@ function Footer(){
       </div>
 
       <div className="redes">
-        <a href="/">Facebook</a>
-        <a href="/">Instagram</a>
-        <a href="/">Linkedin</a>
-      </div>
+      <a href="/">
+        <i className="fab fa-facebook"></i> {/* Ícone do Facebook */}
+      </a>
+      <a href="/">
+        <i className="fab fa-instagram"></i> {/* Ícone do Instagram */}
+      </a>
+      <a href="/">
+        <i className="fab fa-linkedin"></i> {/* Ícone do LinkedIn */}
+      </a>
+    </div>
    </footer>
   )  
 }

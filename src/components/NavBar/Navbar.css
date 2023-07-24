@@ -3,41 +3,55 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
+    padding: 15px 30px;
+    background-color: #222;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave ao fundo */
+    display: flex;
+    align-items: center; /* Centralizar o texto verticalmente */
+    z-index: 9999;
 }
-  
+
+/* Se desejar, você pode adicionar um hover para alterar a cor do fundo quando o mouse passar por cima */
+nav li:hover {
+    background-color: #dce0e9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 nav ul {
     display: flex;
     justify-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
-    height: 60px;
+    height: 80px;
 }
   
 nav li {
     text-align: center;
-    margin: 10px 5px 10px 5px;
+    margin: 20px 15px 10px 5px;
 }
   
 nav a {
     display: block;
-    padding: 12px;
+    padding: 20px;
     color: #333;
-    font-size: smaller;
+    font-size: 13px;
     text-decoration: none;
     text-transform: uppercase;
     border-bottom: 2px solid transparent;
     text-align: center;
     height: 10px;
-    margin: 20px;
+    margin: 10px;
     font-weight: bold;
 }
   
 nav a:hover {
-    border-bottom-color: #0e1b83;
+    border-bottom-color: #dce0e9;
+    border-radius: 15px;
 }
 
 .menu {
@@ -45,8 +59,10 @@ nav a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    font-size: medium;
-    font-weight: 500;
+    height: 70px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
     background-color: #fff;
     color: #333;
 }
@@ -61,12 +77,17 @@ nav a:hover {
 }
   
 .menu ul li {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
+/* Estilo do logo */
 .logo-objetiva{
-    margin-top: -15px;
-    max-width: 120px;
-    text-decoration: none;
+    display: inline-block;
+    margin-top: -20px; /* Reduzido o valor para ajustar a posição */
+    /*max-width: 150px; /* Aumente o tamanho máximo do logo */
+    /*text-decoration: none;
+    /*color: #fff; /* Define a cor do texto, caso você queira aplicar */
+    /*font-size: 28px; /* Aumente o tamanho da fonte do logo */
+    /*font-weight: bold; /* Adicione a propriedade para deixar o texto em negrito */
   }
   

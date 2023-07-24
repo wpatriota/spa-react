@@ -19,7 +19,17 @@ function Calculadora() {
     // Chamamos a função de cálculo e passamos os valores inseridos nos campos
     const resultadoCalculo = calcularResultado(credito, percentual, dataEncerramento);
 
-    // Verificamos se o resultado do cálculo é um número antes de continuar
+    
+    // Validar os campos antes de calcular
+    if (!credito || !percentual || !dataEncerramento) {
+      // Exibir a mensagem de erro se algum campo estiver vazio
+      setShowErrorMessage(true);
+      setShowFailMessage(false);
+      setResultado(null);
+      setIsGirando(false);
+      return;
+    }else{
+      // Verificamos se o resultado do cálculo é um número antes de continuar
     if (!isNaN(resultadoCalculo)) {
 
       if(resultadoCalculo == 0){        
@@ -40,14 +50,6 @@ function Calculadora() {
       setResultado(null);
       
     }
-    // Validar os campos antes de calcular
-    if (!credito || !percentual || !dataEncerramento) {
-      // Exibir a mensagem de erro se algum campo estiver vazio
-      setShowErrorMessage(true);
-      setShowFailMessage(false);
-      setResultado(null);
-      setIsGirando(false);
-      return;
     }
   };
 
@@ -63,7 +65,7 @@ function Calculadora() {
       {!isGirando ? (
         <div className="frente">
           {showErrorMessage && <div className="error-message">Por favor, preencha todos os campos corretamente!</div>}
-          {showFailMessage && <div className="fail-message">Valores fora dos nossos parametros de proposta</div>}
+          {showFailMessage && <div className="fail-message">Valores fora dos nossos parâmetros de proposta</div>}
         
           <h3>Nossa Proposta</h3>
           <form>
@@ -103,14 +105,13 @@ function Calculadora() {
         <div className="resultado-costas">
           <h3>Parabéns!</h3>
           <div className="resultado-content">
-            <p>Confira nossa proposta</p>
+            <h1>Confira nossa proposta</h1>
             <p className="valor-economia">{resultado ? parseFloat(resultado).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '0,00'}</p>
-  
-            <p>fale conosco!</p>
+              
           </div>
           
           <p className="lead-message">Não perca tempo, entre em contato e aproveite essa oportunidade única!</p>
-          <button onClick={handleVoltar}>Calcular Novamente</button>
+          <button className='btnVoltar' onClick={handleVoltar}>Calcular Novamente</button>
         </div>
       )}
     </div>
