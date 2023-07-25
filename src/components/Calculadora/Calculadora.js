@@ -32,7 +32,7 @@ function Calculadora() {
       // Verificamos se o resultado do cálculo é um número antes de continuar
     if (!isNaN(resultadoCalculo)) {
 
-      if(resultadoCalculo == 0){        
+      if(resultadoCalculo === 0){        
         setShowFailMessage(true);
         setShowErrorMessage(false);
         setResultado(null);
@@ -103,7 +103,7 @@ function Calculadora() {
         </div>
       ) : (
         <div className="resultado-costas">
-          <h3></h3>
+          
           <div className="resultado-content">
             <h1>Confira nossa proposta</h1>
             <p className="lead-message">ESTAMOS EM MANUTENÇÃO. VALORES FORA DO PADRÃO</p>    
