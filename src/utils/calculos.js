@@ -8,26 +8,36 @@ const calcularMesesDiferenca = (dataEspecifica) => {
   return mesesDiferenca;
 };
 
-function customRound(value) {
+/*function customRound(value) {
+  console.log('valor:', value);
+
   if (value > 500) {
+    console.log('valor < 500:', Math.ceil(value / 1000) * 1000);
     return Math.ceil(value / 1000) * 1000; // Arredonda para cima para o múltiplo de 1000 mais próximo
+    
   } else {
+    console.log('valor > 500:', Math.floor(value / 100) * 100);
     return Math.floor(value / 100) * 100; // Arredonda para baixo para o múltiplo de 100 mais próximo
   }
+}*/
+
+function customRound(value) {
+  console.log('valor:', Math.round(value / 1000) * 1000);
+  return Math.round(value / 1000) * 1000; // Arredonda para baixo para o múltiplo de 100 mais próximo
 }
 
 
 const calcularResultado = (credito, percentual, dataencerramento) => {
-  const valorDoBem = parseFloat(credito);
+  let valorDoBem = parseFloat(credito.replace('.', '').replace(',', '.'));
   //const valorPago = parseFloat(percentual);
   const valorPago = parseFloat(percentual.replace(',', '.'));
   const mesesDiferenca = calcularMesesDiferenca(dataencerramento);
   const valorRecebivel = valorDoBem * (valorPago / 100);
   let resultadoCalculo = 0;
   
-  //console.log('valorDoBem', valorDoBem);
-  //console.log('valorPago', valorPago);
-  //console.log('mesesDiferenca', mesesDiferenca);
+  console.log('valorDoBem', valorDoBem);
+  console.log('valorPago', valorPago);
+  console.log('mesesDiferenca', mesesDiferenca);
 
 
   // Cálculo do valor da proposta
@@ -47,19 +57,21 @@ const calcularResultado = (credito, percentual, dataencerramento) => {
     resultadoCalculo = valorDoBem * (valorPago * 0.2 / 100);
   }
 
-  //console.log('resultadoCalculo', resultadoCalculo);
+  console.log('resultadoCalculo', resultadoCalculo);
   // Cálculo do valor do recebível
 
   let lucro = 0;
   
-  //console.log('valorRecebivel', valorRecebivel);
+  console.log('valorRecebivel', valorRecebivel);
   if (valorRecebivel <= 9999) {
+    console.log('lucro <', lucro);
     lucro = 0;    
   }else{
     lucro = valorRecebivel - resultadoCalculo;
+    console.log('lucro >', lucro);
   }
 
-  //console.log('lucro', lucro);
+  
 
   if(lucro < 5000){
     resultadoCalculo = 0;
