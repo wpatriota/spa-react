@@ -1,9 +1,5 @@
 import { differenceInMonths, parseISO } from 'date-fns';
 
-const formatarMoedaBRL = (valor) => {
-    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  };
-  
 const calcularMesesDiferenca = (dataEspecifica) => {
   const dataEspecificaDate = parseISO(dataEspecifica);
   const hoje = new Date();
@@ -13,27 +9,25 @@ const calcularMesesDiferenca = (dataEspecifica) => {
 };
 
 function customRound(value) {
-  if (value < 500) {
-    return Math.floor(value / 100) * 100; // Arredonda para baixo para o múltiplo de 100 mais próximo
+  if (value > 500) {
+    return Math.ceil(value / 1000) * 1000; // Arredonda para cima para o múltiplo de 1000 mais próximo
   } else {
-    return Math.floor(value / 1000) * 1000; // Arredonda para baixo para o múltiplo de 1000 mais próximo
+    return Math.floor(value / 100) * 100; // Arredonda para baixo para o múltiplo de 100 mais próximo
   }
 }
 
+
 const calcularResultado = (credito, percentual, dataencerramento) => {
-  //const valorDoBem = parseFloat(credito.replace(/[^0-9.-]+/g, ""));
-    const valorDoBem = parseFloat(credito);
-  //const valorPago = parseFloat(percentual.replace(/[^0-9.-]+/g, ""));
+  const valorDoBem = parseFloat(credito);
   const valorPago = parseFloat(percentual);
-
   const mesesDiferenca = calcularMesesDiferenca(dataencerramento);
-
-  console.log('valorDoBem', valorDoBem);
-    console.log('valorPago', valorPago);
-    console.log('mesesDiferenca', mesesDiferenca);
-
   const valorRecebivel = valorDoBem * (valorPago / 100);
   let resultadoCalculo = 0;
+  
+  console.log('valorDoBem', valorDoBem);
+  console.log('valorPago', valorPago);
+  console.log('mesesDiferenca', mesesDiferenca);
+
 
   // Cálculo do valor da proposta
   if (mesesDiferenca >= 4 && mesesDiferenca <= 12) {
