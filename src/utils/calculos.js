@@ -24,9 +24,9 @@ const calcularResultado = (credito, percentual, dataencerramento) => {
   const valorRecebivel = valorDoBem * (valorPago / 100);
   let resultadoCalculo = 0;
   
-  console.log('valorDoBem', valorDoBem);
-  console.log('valorPago', valorPago);
-  console.log('mesesDiferenca', mesesDiferenca);
+  //console.log('valorDoBem', valorDoBem);
+  //console.log('valorPago', valorPago);
+  //console.log('mesesDiferenca', mesesDiferenca);
 
 
   // Cálculo do valor da proposta
