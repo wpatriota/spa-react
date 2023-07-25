@@ -19,7 +19,8 @@ function customRound(value) {
 
 const calcularResultado = (credito, percentual, dataencerramento) => {
   const valorDoBem = parseFloat(credito);
-  const valorPago = parseFloat(percentual);
+  //const valorPago = parseFloat(percentual);
+  const valorPago = parseFloat(percentual.replace(',', '.'));
   const mesesDiferenca = calcularMesesDiferenca(dataencerramento);
   const valorRecebivel = valorDoBem * (valorPago / 100);
   let resultadoCalculo = 0;
@@ -46,16 +47,19 @@ const calcularResultado = (credito, percentual, dataencerramento) => {
     resultadoCalculo = valorDoBem * (valorPago * 0.2 / 100);
   }
 
-  console.log('resultadoCalculo', resultadoCalculo);
+  //console.log('resultadoCalculo', resultadoCalculo);
   // Cálculo do valor do recebível
 
   let lucro = 0;
   
+  //console.log('valorRecebivel', valorRecebivel);
   if (valorRecebivel <= 9999) {
-    lucro = 0;
+    lucro = 0;    
   }else{
     lucro = valorRecebivel - resultadoCalculo;
   }
+
+  //console.log('lucro', lucro);
 
   if(lucro < 5000){
     resultadoCalculo = 0;
