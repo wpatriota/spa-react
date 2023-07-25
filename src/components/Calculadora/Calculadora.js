@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CurrencyInput from 'react-currency-input-field';
 import calcularResultado from '../../utils/calculos';
 import './Calculadora.css';
-import DateInput from '../DateInput/DateInput';
+//import DateInput from '../DateInput/DateInput';
 
 function Calculadora() {
   const [credito, setCredito] = useState('');
@@ -17,7 +17,7 @@ function Calculadora() {
     event.preventDefault();
 
     // Chamamos a função de cálculo e passamos os valores inseridos nos campos
-    const resultadoCalculo = calcularResultado(credito, percentual, dataEncerramento);
+    let resultadoCalculo = calcularResultado(credito, percentual, dataEncerramento);
 
     
     // Validar os campos antes de calcular
@@ -31,6 +31,7 @@ function Calculadora() {
     }else{
       // Verificamos se o resultado do cálculo é um número antes de continuar
     if (!isNaN(resultadoCalculo)) {
+      resultadoCalculo = parseFloat(resultadoCalculo);
 
       if(resultadoCalculo === 0){        
         setShowFailMessage(true);
@@ -58,6 +59,9 @@ function Calculadora() {
     setShowErrorMessage(false);
     setShowFailMessage(false); 
     setResultado(null); // Limpa o resultado para permitir um novo cálculo
+    setCredito(''); // Limpa o campo de crédito
+    setPercentual(''); // Limpa o campo de percentual
+    setDataEncerramento(''); // Limpa o campo de data de encerramento
   };
 
   return (
@@ -72,6 +76,7 @@ function Calculadora() {
             <label>Crédito</label><br />
             <span className='subtitulo'>(valor do bem)</span><br />
             <CurrencyInput
+              intlConfig={{ locale: 'pt-BR', currency: 'BRL' }}
               prefix="R$ "
               decimalsLimit={2}
               groupSeparator="."
@@ -83,13 +88,17 @@ function Calculadora() {
                     
             <label>Percentual Pago</label><br />
             <span className='subtitulo'>(valor pago em percentual do bem)</span><br />
-            <CurrencyInput
+            <CurrencyInput                         
               suffix="%"
-              groupSeparator="."
+              allowDecimals={true}              
               decimalSeparator=","
               allowNegativeValue={false}
               value={percentual}
-              decimalScale={2}
+              decimalScale={4}
+              decimalsLimit={4}
+              maxLength={7}
+              //fixedDecimalLength={4}   
+              format="##,####"           
               onValueChange={(value, name) => setPercentual(value)}
             />
             <br />
@@ -106,6 +115,8 @@ function Calculadora() {
           
           <div className="resultado-content">
             <h1>Confira nossa proposta</h1>
+            <p className="valor-economia">{resultado ? parseFloat(resultado).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '0,00'}</p>
+      
             <p className="lead-message">ESTAMOS EM MANUTENÇÃO. VALORES FORA DO PADRÃO</p>    
           </div>
           
