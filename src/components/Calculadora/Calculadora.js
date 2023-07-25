@@ -117,9 +117,9 @@ function Calculadora() {
             <h1>Confira nossa proposta</h1>
             <p className="valor-economia">{resultado ? parseFloat(resultado).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '0,00'}</p>
       
-            <p className="lead-message">ESTAMOS EM MANUTENÇÃO. VALORES FORA DO PADRÃO</p>    
+                
           </div>
-          
+          <p className="lead-message">Entre em contato conosco e aproveite esta oportunidade</p>
           <button className='btnVoltar' onClick={handleVoltar}>Calcular Novamente</button>
         </div>
       )}
