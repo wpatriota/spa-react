@@ -103,14 +103,12 @@ function Calculadora() {
         </div>
       ) : (
         <div className="resultado-costas">
-          <h3>Parabéns!</h3>
+          <h3></h3>
           <div className="resultado-content">
             <h1>Confira nossa proposta</h1>
-            <p className="valor-economia">{resultado ? parseFloat(resultado).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '0,00'}</p>
-              
+            <p className="lead-message">ESTAMOS EM MANUTENÇÃO. VALORES FORA DO PADRÃO</p>    
           </div>
           
-          <p className="lead-message">Não perca tempo, entre em contato e aproveite essa oportunidade única!</p>
           <button className='btnVoltar' onClick={handleVoltar}>Calcular Novamente</button>
         </div>
       )}
