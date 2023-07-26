@@ -1,6 +1,15 @@
 .HomeDescription{
   position: relative;
   padding: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  margin: 30px 0px 30px 50px;
+  /*box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);*/
+  /*box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;*/
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: aliceblue;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .HomeDescription h1 {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CurrencyInput from 'react-currency-input-field';
 import calcularResultado from '../../utils/calculos';
 import './Calculadora.css';
+import LeadContactForm from '../LeadContactForm/LeadContactForm';
 //import DateInput from '../DateInput/DateInput';
 
 function Calculadora() {
@@ -107,20 +108,17 @@ function Calculadora() {
             <span className='subtitulo'>(faltando até 10 anos para encerrar o grupo)</span><br />
             <input type="date" value={dataEncerramento} onChange={(event) => setDataEncerramento(event.target.value)} />
             <br/>
-            <button type="submit" onClick={handleCalcular}>Calcular</button>
+            <button className='btnCalcular' type="submit" onClick={handleCalcular}>Calcular</button>
           </form>
         </div>
       ) : (
-        <div className="resultado-costas">
-          
+        <div className="resultado-costas">          
           <div className="resultado-content">
             <h1>Confira nossa proposta</h1>
-            <p className="valor-economia">{resultado ? parseFloat(resultado).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '0,00'}</p>
-      
-                
+            <p className="valor-economia">{resultado ? parseFloat(resultado).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '0,00'}</p>                      
           </div>
-          <p className="lead-message">Entre em contato conosco e aproveite esta oportunidade</p>
-          <button className='btnVoltar' onClick={handleVoltar}>Calcular Novamente</button>
+          <LeadContactForm />          
+          <button className='btnVoltar' onClick={handleVoltar}> ↩ Voltar</button>
         </div>
       )}
     </div>

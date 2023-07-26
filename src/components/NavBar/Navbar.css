@@ -18,7 +18,8 @@ nav {
 /* Se desejar, você pode adicionar um hover para alterar a cor do fundo quando o mouse passar por cima */
 nav li:hover {
     background-color: #dce0e9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0 0 60px; 
 }
 
 nav ul {
@@ -33,6 +34,8 @@ nav ul {
 nav li {
     text-align: center;
     margin: 20px 15px 10px 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 20px;
 }
   
 nav a {
@@ -59,7 +62,7 @@ nav a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 90px;
     padding: 15px 30px;
     font-size: 16px;
     font-weight: 600;
@@ -80,14 +83,18 @@ nav a:hover {
     margin: 0 15px;
 }
 
-/* Estilo do logo */
-.logo-objetiva{
-    display: inline-block;
-    margin-top: -20px; /* Reduzido o valor para ajustar a posição */
-    /*max-width: 150px; /* Aumente o tamanho máximo do logo */
-    /*text-decoration: none;
-    /*color: #fff; /* Define a cor do texto, caso você queira aplicar */
-    /*font-size: 28px; /* Aumente o tamanho da fonte do logo */
-    /*font-weight: bold; /* Adicione a propriedade para deixar o texto em negrito */
+/* Estilos para o elemento .logo-nav */
+nav li .logo-nav {
+    margin-top: -25px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  
+    /* Remover a sombra e o efeito no hover */
+    box-shadow: none;
+    pointer-events: none; /* Evita que o elemento .logo-nav seja clicável */
   }
   
+ 

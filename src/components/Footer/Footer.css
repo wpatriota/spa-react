@@ -1,5 +1,5 @@
 .footer{
-    background-color: #15356b;
+    background-color: #0a234f;
     padding: 0px 10px 0px 20px;
 }
 
@@ -28,9 +28,7 @@
 }
 
 .redes-sociais{
-  text-align: right;
-  font: 1em sans-serif;
-  color: aliceblue;
+  box-shadow: 0px 0px 0px 0px;
 }
 
 .cnpj{

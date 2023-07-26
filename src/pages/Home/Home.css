@@ -7,16 +7,6 @@
     position: relative;
 }
 
-/* O vídeo deve ser adicionado como um elemento <video> */
-.sectionHome video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .sectionHome::before {
     content: '';
     position: absolute;
@@ -27,13 +17,21 @@
     background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
   }
 
-.sectionHome h2{
-    color:rgb(255, 255, 255);
-    position: relative;
-}
-
 .overlay {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5); /* Define a cor de sobreposição com transparência */
+}
+
+.title-calc{
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1d0957;
+}
+
+.area-calculadora{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

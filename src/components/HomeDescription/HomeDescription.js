@@ -1,10 +1,12 @@
 import React from 'react';
 import './HomeDescription.css';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import 'react-toastify/dist/ReactToastify.css'
 
 function HomeDescription(){
     return(
         <div className='HomeDescription'>
+          
           <h1>Não venda seu consórcio cancelado <br />sem antes nos consultar</h1>
           
           <ul>
