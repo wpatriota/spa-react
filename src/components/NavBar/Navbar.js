@@ -15,9 +15,8 @@ function Navbar(){
       <Router>
         <nav className="menu">
           <ul>
-            <li><Link to="/"><img className='logo-nav' src="logo-objetiva2.png" alt="Logo Objetiva" /></Link></li>
-            <li><Link to="/">Home</Link></li>
-            
+            <img className='logo-nav' src="logo-objetiva2.png" alt="Logo Objetiva" />
+            <li><Link to="/">Home</Link></li>            
             <li><Link to="/participacaoRemunerada">Programa de participação remunerada</Link></li>
             <li><Link to="/servicos">Intermediação de cotas canceladas</Link></li>
             <li><Link to="/contato">Contato</Link></li>
