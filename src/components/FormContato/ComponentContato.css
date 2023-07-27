@@ -1,0 +1,54 @@
+/* Estilos para o formulário de contato */
+.contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .contact-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .contact-form textarea {
+    resize: vertical;
+  }
+  
+  .contact-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Opcional: Estilizar a mensagem de validação do campo obrigatório */
+  .contact-form input:required:invalid,
+  .contact-form textarea:required:invalid {
+    border-color: red;
+  }
+  
+  .contact-form input:required:valid,
+  .contact-form textarea:required:valid {
+    border-color: #ccc;
+  }
+  

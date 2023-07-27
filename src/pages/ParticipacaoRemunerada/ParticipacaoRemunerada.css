@@ -1,0 +1,44 @@
+.participacao-remunerada {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .login-section {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .description-section {
+    flex: 1;
+    padding: 50px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+  }
+  
+  .description-section h2 {
+    color: #007bff;
+  }
+  
+  .description-section p {
+    font-size: 16px;
+  }
+  
+  .participacao-remunerada h2{
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(18, 6, 83);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+  }
+
+  .participacao-remunerada p{
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(18, 6, 83);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+
+  }

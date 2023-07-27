@@ -17,41 +17,34 @@ function Calculadora() {
   const handleCalcular = (event) => {
     event.preventDefault();
 
-    // Chamamos a função de cálculo e passamos os valores inseridos nos campos
     let resultadoCalculo = calcularResultado(credito, percentual, dataEncerramento);
 
-    
-    // Validar os campos antes de calcular
     if (!credito || !percentual || !dataEncerramento) {
-      // Exibir a mensagem de erro se algum campo estiver vazio
       setShowErrorMessage(true);
       setShowFailMessage(false);
       setResultado(null);
       setIsGirando(false);
       return;
     }else{
-      // Verificamos se o resultado do cálculo é um número antes de continuar
-    if (!isNaN(resultadoCalculo)) {
-      resultadoCalculo = parseFloat(resultadoCalculo);
+      if (!isNaN(resultadoCalculo)) {
+        resultadoCalculo = parseFloat(resultadoCalculo);
 
-      if(resultadoCalculo === 0){        
-        setShowFailMessage(true);
-        setShowErrorMessage(false);
+        if(resultadoCalculo === 0){        
+          setShowFailMessage(true);
+          setShowErrorMessage(false);
+          setResultado(null);
+          setIsGirando(false);
+          return;
+        }else{
+          const resultadoArredondado = parseFloat(resultadoCalculo).toFixed(2);
+          setResultado(resultadoArredondado);
+          setIsGirando(true); // Inicia o efeito de girar a calculadora
+        }
+        
+      } else {
         setResultado(null);
-        setIsGirando(false);
-        return;
-      }else{
-        // Arredondamos o resultado para 2 casas decimais
-        const resultadoArredondado = parseFloat(resultadoCalculo).toFixed(2);
-        setResultado(resultadoArredondado);
-        setIsGirando(true); // Inicia o efeito de girar a calculadora
+        
       }
-      
-    } else {
-      // Caso o resultado não seja um número válido, definimos o resultado como null
-      setResultado(null);
-      
-    }
     }
   };
 
