@@ -1,38 +1,89 @@
-.footer{
-    background-color: #0a234f;
-    padding: 0px 10px 0px 20px;
+.footer {
+  background-color: #0a234f;
+  /* padding: 10px; */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
-.footer h3{
-  color:aliceblue;
-  font: 1.5em sans-serif;
-  text-align: left;
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.endereco{
-  text-align: right;
-  font: 1em sans-serif;
+.company-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.company-info h3 {
+  color: aliceblue;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.cnpj {
+  color: aliceblue;
+  font-size: 1em;
+  margin: 5px 5px 5px 10px ;
+}
+
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.contact-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
   color: aliceblue;
 }
 
-.telefones{
-  text-align: right;
-  font: 1em sans-serif;
+.contact-icon {
   color: aliceblue;
+  font-size: 1.2em;
+  margin-right: 5px;
 }
 
-.email{
+.address {
   text-align: right;
-  font: 1em sans-serif;
+  font-size: 0.9em;
   color: aliceblue;
+  flex: 1;
 }
 
-.redes-sociais{
-  box-shadow: 0px 0px 0px 0px;
+.social-media {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.cnpj{
-  text-align: right;
-  font: 1em sans-serif;
+.social-icon {
   color: aliceblue;
+  font-size: 1.2em;
+  margin: 10px 15px 0px 5px;
+}
+
+/* Adjusting responsiveness for smaller screens */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .company-info,
+  .contact-info,
+  .address,
+  .social-media {
+    text-align: center;
+  }
 }

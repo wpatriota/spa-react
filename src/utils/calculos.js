@@ -22,7 +22,7 @@ const calcularMesesDiferenca = (dataEspecifica) => {
 }*/
 
 function customRound(value) {
-  console.log('valor:', Math.round(value / 1000) * 1000);
+  //console.log('valor:', Math.round(value / 1000) * 1000);
   return Math.round(value / 1000) * 1000; // Arredonda para baixo para o múltiplo de 100 mais próximo
 }
 
@@ -35,9 +35,9 @@ const calcularResultado = (credito, percentual, dataencerramento) => {
   const valorRecebivel = valorDoBem * (valorPago / 100);
   let resultadoCalculo = 0;
   
-  console.log('valorDoBem', valorDoBem);
-  console.log('valorPago', valorPago);
-  console.log('mesesDiferenca', mesesDiferenca);
+  //console.log('valorDoBem', valorDoBem);
+  //console.log('valorPago', valorPago);
+  //console.log('mesesDiferenca', mesesDiferenca);
 
 
   // Cálculo do valor da proposta
@@ -57,18 +57,18 @@ const calcularResultado = (credito, percentual, dataencerramento) => {
     resultadoCalculo = valorDoBem * (valorPago * 0.2 / 100);
   }
 
-  console.log('resultadoCalculo', resultadoCalculo);
+  //console.log('resultadoCalculo', resultadoCalculo);
   // Cálculo do valor do recebível
 
   let lucro = 0;
   
-  console.log('valorRecebivel', valorRecebivel);
+  //console.log('valorRecebivel', valorRecebivel);
   if (valorRecebivel <= 9999) {
-    console.log('lucro <', lucro);
+    //console.log('lucro <', lucro);
     lucro = 0;    
   }else{
     lucro = valorRecebivel - resultadoCalculo;
-    console.log('lucro >', lucro);
+    //console.log('lucro >', lucro);
   }
 
   

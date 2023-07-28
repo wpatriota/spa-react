@@ -1,0 +1,28 @@
+.contato-section {
+    background-color: #f9f9f9;
+    padding: 40px;
+  }
+  
+  .contato-title {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .contato-description {
+    color: #666;
+    font-size: 1em;
+    margin-bottom: 40px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .contato-form-container {
+    /*border: 1px solid #ccc;*/
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the form fields within ComponentContato if needed */
+  

@@ -8,9 +8,9 @@ function ComponentContato() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Nome:', nome);
-    console.log('Email:', email);
-    console.log('Mensagem:', mensagem);
+    //console.log('Nome:', nome);
+    //console.log('Email:', email);
+    //console.log('Mensagem:', mensagem);
   };
 
   return (

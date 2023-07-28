@@ -7,8 +7,8 @@ function LoginPPR() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Usuário:', usuario);
-    console.log('Senha:', senha);
+    //console.log('Usuário:', usuario);
+    //console.log('Senha:', senha);
   };
 
   return (
